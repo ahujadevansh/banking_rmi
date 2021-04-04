@@ -8,12 +8,11 @@ class MasterServer {
 	{ 
         try { 
 			LocateRegistry.createRegistry(1099);
-            System.out.println("1");
             LoadBalancingInterface lb = new LoadBalancingImplementation();
 			// Bind the localhost with the service 
 			Naming.rebind("rmi://localhost/LoadBalancing", lb);
-            System.out.println("2");
-            // Naming.rebind("rmi://localhost/MasterServer", ); 
+			// DatabaseInterface db = new DatabaseImplementation();
+			// Naming.rebind("rmi://localhost/db", db);
 		} 
 		catch (Exception e) { 
 			// If any error occur 
