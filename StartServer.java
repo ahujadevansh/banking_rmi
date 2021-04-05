@@ -19,7 +19,7 @@ public class StartServer {
 		try { 
 			// Create a object reference for the interface 
 			ServerInterface s = new ServerImplementation(); 
-            LoadBalancingInterface lb = (LoadBalancingInterface) Naming.lookup("rmi://localhost/LoadBalancing");
+            LoadBalancingInterface lb = (LoadBalancingInterface) Naming.lookup("rmi://10.0.2.9/LoadBalancing");
 			lb.register(s, this.name); 
 		} 
 		catch (Exception e) { 
@@ -29,7 +29,7 @@ public class StartServer {
 	} 
 	protected void finalize() throws Throwable  
 	{  
-		LoadBalancingInterface lb = (LoadBalancingInterface) Naming.lookup("rmi://localhost/LoadBalancing");
+		LoadBalancingInterface lb = (LoadBalancingInterface) Naming.lookup("rmi://10.0.2.9/LoadBalancing");
 		lb.unregister(this.name);
 	}  
 

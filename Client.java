@@ -13,7 +13,7 @@ public class Client {
         {
             try
             { 
-                lb = (LoadBalancingInterface) Naming.lookup("rmi://localhost/LoadBalancing");
+                lb = (LoadBalancingInterface) Naming.lookup("rmi://10.0.2.9/LoadBalancing");
 
                 serverName = lb.getActiveServer();
                 if (serverName == null) {
@@ -31,7 +31,7 @@ public class Client {
                 try 
                 {
                     System.out.println(ProgressBar.ANSI_YELLOW);
-                    ServerInterface s = (ServerInterface) Naming.lookup("rmi://localhost/" + serverName);
+                    ServerInterface s = (ServerInterface) Naming.lookup("rmi://10.0.2.9/" + serverName);
                     ProgressBar.progress();
                     
                     // Call the method for the results 
